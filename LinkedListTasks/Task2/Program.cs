@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Task_2
+namespace Task2
 {
     class Program
     {
+        private const int N = 30;
+        private const int MAX_VALUE = 99;
+        private const int MIN_VALUE = 1;
 
+        private static LinkedList<int> list = new LinkedList<int>();
         static void Main(string[] args)
         {
-            LinkedList<int> list = new LinkedList<int>();
-
             Random random = new Random();
 
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < N; i++)
             {
-                int value = random.Next(1, 99);
+                int value = random.Next(MIN_VALUE, MAX_VALUE);
                 list.AddLast(value);
             }
 
@@ -27,24 +29,31 @@ namespace Task_2
 
             Console.Write("Enter value of x: ");
             int x = int.Parse(Console.ReadLine());
+
             Console.Write("Enter value of y: ");
             int y = int.Parse(Console.ReadLine());
 
-            if (x < y)
+            while (x > y)
             {
-                var node = list.First;
-
-                while (node != null)
-                {
-                    var nextNode = node.Next;
-                    if (node.Value > x && node.Value < y)
-                    {
-                        list.Remove(node);
-                    }
-                    node = nextNode;
-                }
-
+                Console.WriteLine("X can't be bigger than y");
+                Console.Write("Enter value of x: ");
+                x = int.Parse(Console.ReadLine());
             }
+
+            var node = list.First;
+
+            while (node != null)
+            {
+                var nextNode = node.Next;
+                if (node.Value > x && node.Value < y)
+                {
+                    list.Remove(node);
+                }
+                node = nextNode;
+            }
+
+
+
 
             Console.WriteLine($"List without numbers between {x} and {y} :");
             foreach (var number in list)
@@ -71,5 +80,3 @@ namespace Task_2
         }
     }
 }
-    
-
