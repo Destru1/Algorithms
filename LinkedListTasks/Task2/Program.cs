@@ -10,7 +10,7 @@ namespace Task2
         private const int MIN_VALUE = 1;
 
         private static LinkedList<int> list = new LinkedList<int>();
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Random random = new Random();
 
@@ -20,10 +20,7 @@ namespace Task2
                 list.AddLast(value);
             }
 
-            foreach (int number in list)
-            {
-                Console.Write(number + " ");
-            }
+            PrintList();
 
             Console.WriteLine();
 
@@ -53,13 +50,9 @@ namespace Task2
             }
 
 
-
-
+            Console.WriteLine("==============================================");
             Console.WriteLine($"List without numbers between {x} and {y} :");
-            foreach (var number in list)
-            {
-                Console.Write(number + " ");
-            }
+            PrintList();
             Console.WriteLine();
             Console.WriteLine("==============================================");
 
@@ -77,6 +70,14 @@ namespace Task2
                 }
             }
 
+        }
+
+        private static void PrintList()
+        {
+            foreach (int number in list)
+            {
+                Console.Write(number + " ");
+            }
         }
     }
 }

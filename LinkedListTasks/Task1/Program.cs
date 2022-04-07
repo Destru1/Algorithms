@@ -5,13 +5,13 @@ namespace Task1
 {
     class Program
     {
-       
+
         private const int N = 10;
 
         private static LinkedList<int> list = new LinkedList<int>();
         private static LinkedListNode<int> lastNode;
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
 
             for (int i = 0; i < N; i++)
@@ -60,12 +60,11 @@ namespace Task1
 
             }
 
-
             foreach (int number in list)
             {
                 Console.Write(number + " ");
             }
         }
     }
-    }
+}
 
