@@ -33,23 +33,9 @@ namespace Task_2
             Console.WriteLine();
             Console.WriteLine("Sorted array with LNR traverse");
 
-            int index = 0;
-            void Sort(Node root)
-            {
-                if (root == null)
-                {
-                    return;
-                }
-                Sort(root.left);
-                array[index++] = root.value;
-                Sort(root.right);
-            }
-            Sort(node);
-            for (int i = 0; i < array.Length; i++)
-            {
 
-                Console.Write(array[i] + " ");
-            }
+            tree.Traverse(node);
+
 
         }
 
@@ -85,7 +71,21 @@ namespace Task_2
                 }
             }
 
+            public void Traverse(Node node)
+            {
 
+
+                if (node.left != null)
+                {
+                    Traverse(node.left);
+                }
+                Console.Write(node.value + " ");
+                if (node.right != null)
+                {
+                    Traverse(node.right);
+                }
+
+            }
 
         }
     }
